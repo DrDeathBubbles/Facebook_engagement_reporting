@@ -24,6 +24,13 @@ def get_likes_temp(post_id):
     data = json.loads(r.text)
     return data 
 
+
+def post_information_link(post_id):
+    r = requests.get('https://graph.facebook.com/v2.8/{}/?fields=link&access_token={}'.format(post_id,os.environ['ACCESSTOKEN']))
+    data = json.loads(r.text)
+    return data['link']
+
+
 def post_information(post_id):
     r = requests.get('https://graph.facebook.com/v2.8/{}?access_token={}'.format(post_id,os.environ['ACCESSTOKEN']))
     data = json.loads(r.text)
