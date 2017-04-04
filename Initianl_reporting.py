@@ -36,12 +36,30 @@ def post_information(post_id):
     data = json.loads(r.text)
     return data
 
+def page_insights(post_id):
+    r = requests.get('https://graph.facebook.com/v2.8/{}/insights/page_impressions_unique?access_token={}'.format(post_id,os.environ['ACCESSTOKEN']))
+    data = json.loads(r.text)
+    return data
+
+
+def post_insights(page_id,post_id):
+    r = requests.get('https://graph.facebook.com/v2.8/{}_{}/insights/post_impressions?access_token={}'.format(page_id,post_id,os.environ['ACCESSTOKEN']))
+    data = json.loads(r.text)
+    return data
+
+
+def post_insights_2(page_id,post_id):
+    r = requests.get('https://graph.facebook.com/v2.8/{}/insights/post_impressions?access_token={}'.format(post_id,os.environ['ACCESSTOKEN']))
+    data = json.loads(r.text)
+    return data
+
+
 #Initial request for posts from WebSummit page
 r = requests.get('https://graph.facebook.com/v2.8/WebSummitHQ/feed?access_token={}'.format(os.environ['ACCESSTOKEN']))
 data = json.loads(r.text)
-r = requests.get('http://graph.facebook.com/v2.8/')
+#r = requests.get('http://graph.facebook.com/v2.8/')
 
-
+#Kerry
 
 
 

@@ -98,4 +98,7 @@ ENV/
 
 # End of https://www.gitignore.io/api/python
 *.swo
-#
+*.json
+*.swm
+*.swn
+*.swl
